@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.section`
 	background: #eee;
@@ -67,11 +67,20 @@ export const Nav = styled.nav`
 	top: 0;
 	left: 0;
 	width: 100%;
+	background: #8d8d8d;
+	z-index: 10;
 `;
 
 export const Img = styled.img`
 	width: 150px;
 	height: 150px;
+
+	${props =>
+		props.collapsed &&
+		css`
+			width: 80px;
+			height: 80px;
+		`}
 `;
 
 export const Links = styled.ul`
@@ -84,6 +93,11 @@ export const Link = styled.li`
 	font-weight: bold;
 	cursor: pointer;
 	margin: 0px 10px;
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
 `;
 export const Login = styled.a`
 	padding: 30px 20px;

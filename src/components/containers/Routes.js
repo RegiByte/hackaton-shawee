@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home';
 import NotFound from '../pages/NotFound';
 import About from '../pages/About';
-import Cursos from '../pages/Cursos';
+import Cursos from '../pages/Student';
 
 function Routes(props) {
 	return (
@@ -11,7 +11,7 @@ function Routes(props) {
 			<Switch>
 				<Route path='/' exact={true} component={Home} />
 				<Route path='/about' exact={true} component={About} />
-				<Route path='/cursos' exact={true} component={Cursos} />
+				<Route path='/estudante' exact={true} component={Cursos} />
 				<Route path='*' component={NotFound} />
 			</Switch>
 		</BrowserRouter>

@@ -1,10 +1,11 @@
-import React from 'react';
-import {Link as RouterLink} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import logo from '../../../assets/logo193.png';
 import {
 	BannerContainer,
 	BannerContainerFoot,
-	Container, Copyright,
+	Container,
+	Copyright,
 	CopyrightFooter,
 	Differentials,
 	DifferentialsTitle,
@@ -26,20 +27,34 @@ import {
 } from './styles';
 
 function Home() {
+	const [collapsed, setCollapsed] = useState(false);
+
+	useEffect(() => {
+		const scrollHandler = ev => {
+			setCollapsed(window.scrollY > 180);
+		};
+
+		window.addEventListener('scroll', scrollHandler);
+
+		return () => {
+			window.removeEventListener('scroll', scrollHandler);
+		};
+	}, []);
+
 	return (
 		<Container>
 			<BannerContainer>
 				<Nav>
 					<RouterLink to='/'>
-						<Img src={logo} alt='Logo'/>
+						<Img src={logo} alt='Logo' collapsed={collapsed} />
 					</RouterLink>
 					<Links>
 						<Link>Contato</Link>
 						<Link>Sobre</Link>
 						<Link>Ajuda</Link>
-						<RouterLink to='/Cursos'>
-							<Link>Cursos</Link>
-						</RouterLink>
+						<Link>
+							<RouterLink to='/estudante'>Cursos</RouterLink>
+						</Link>
 					</Links>
 					<Login>Login</Login>
 				</Nav>
@@ -49,7 +64,7 @@ function Home() {
 			<Reasons>
 				<Reason>
 					<ReasonTitle>
-						<ReasonTitleImage/>
+						<ReasonTitleImage />
 						<ReasonTitleContent>Motivo 1</ReasonTitleContent>
 					</ReasonTitle>
 					<ReasonContent>
@@ -61,7 +76,7 @@ function Home() {
 				</Reason>
 				<Reason>
 					<ReasonTitle>
-						<ReasonTitleImage/>
+						<ReasonTitleImage />
 						Motivo 2
 					</ReasonTitle>
 					<ReasonContent>
@@ -73,7 +88,7 @@ function Home() {
 				</Reason>
 				<Reason>
 					<ReasonTitle>
-						<ReasonTitleImage/>
+						<ReasonTitleImage />
 						Motivo 3
 					</ReasonTitle>
 					<ReasonContent>
