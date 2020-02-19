@@ -7,7 +7,7 @@ import Cursos from '../pages/Student';
 
 function Routes(props) {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename='/hackaton-shawee'>
 			<Switch>
 				<Route path='/' exact={true} component={Home} />
 				<Route path='/about' exact={true} component={About} />
