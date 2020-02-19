@@ -7,5 +7,8 @@ export default {
 	textFontFamily: '"Roboto", sans-serif',
 	titleFontSize: '30px',
 	subtitleFontSize: '24px',
+	buttonFontSize: '18px',
 	textFontSize: '20px',
+	buttonFontFamily: '"Roboto", sans-serif',
+
 };
